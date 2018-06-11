@@ -40,3 +40,42 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for ::1 at 2018-06-10 23:30:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 780ms (Views: 754.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-06-10 23:30:49 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-06-10 23:31:00 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vBzxNKkb4dkRC19t8fmfG9G6L+aNxWUQqlnHu65d81GdDUFnDX69DXb1cUn7j77Y3uEnT55rjEHvGkulZpVyGg==", "title"=>"steven", "description"=>"yoyoyoyoyoyoy\r\n", "commit"=>"Submit Post"}
+  [1m[36m (1.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "steven"], ["description", "yoyoyoyoyoyoy\r\n"], ["created_at", "2018-06-11 03:31:00.866740"], ["updated_at", "2018-06-11 03:31:00.866740"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 21ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2018-06-10 23:31:00 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 71ms (Views: 55.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2018-06-10 23:31:05 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.3ms)
